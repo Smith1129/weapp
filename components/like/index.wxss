@@ -1,0 +1,4 @@
+.like_png{
+  width: 32rpx;
+  height: 28rpx;
+}
