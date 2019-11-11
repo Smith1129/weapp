@@ -9,5 +9,6 @@
     "backgroundColor": "#ffffff",
     "enablePullDownRefresh": false,
     "navigationStyle": "default"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
