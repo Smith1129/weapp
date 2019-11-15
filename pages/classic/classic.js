@@ -1,27 +1,24 @@
 // pages/classic/classic.js
-import Http from '../../utils/http.js'
-let http = new Http()
+import ClassicModel from '../../components/models/classic.js'
+let classicModel = new ClassicModel()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    content:'We gonna get that big deal soon And then we go get all the bitches!'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let payload = {
-      url:'v1/classic/latest',
-      method:'GET',
-      data:{para:'zzz',ccc:'ddd'},
-      success:(res)=>{
-      }
-    }
-    http.request(payload)
+    classicModel.getLatest((res)=>{
+        this.setData({
+          classic:res
+        })
+    })
   },
 
   /**
