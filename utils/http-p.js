@@ -4,15 +4,20 @@ const tips = {
   3000:'期刊不存在'
 }
 class Http{
-
-  request(params){
-    if(!params.method){
-      params.method = 'GET'
-    }
+   request(url,method='post',data={})
+   {
+     return new Promise((resolve,reject)=>{
+       this._request(url,resolve,reject,method,data)
+     })
+   }
+  _request(url,resolve,reject,method='post',data={}){
+    // if(!params.method){
+    //   params.method = 'GET'
+    // }
     wx.request({
-      url: `${config.api_base_url}${params.url}`,
-      method:params.method,
-      data:params.data,
+      url: `${config.api_base_url}${url}`,
+      method:method,
+      data:data,
       header:{
         'content-type':'application/json',
         'appkey':config.appkey
@@ -20,8 +25,10 @@ class Http{
       success:(res)=>{
         let code = res.statusCode
         if(String(code).startsWith('2')){
-          params.success && params.success(res)
+          // params.success && params.success(res)
+          resolve(res)
         }else{
+          reject()
           this._show_error(res.data.error_code)
           // wx.showToast({
           //   title: '4xx错误',
@@ -32,6 +39,7 @@ class Http{
         }
       },
       fail:(err)=>{
+        reject()
         console.log('worry')
       }
     })

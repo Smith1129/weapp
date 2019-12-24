@@ -1,0 +1,7 @@
+<!--components/epsoide/index.wxml-->
+<view class="contain">
+  <text>No.</text>
+  <text>{{_index}}</text>
+  <text>2</text>
+  <text>3</text>
+</view>

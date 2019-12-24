@@ -1,3 +1,46 @@
 <!--pages/classic/classic.wxml-->
-<v-like like="{{classic.like}}" count="{{classic.count}}" />
+<v-epsoide index="{{5}}"></v-epsoide>
+<v-like bindmyEvent="mylike" like="{{classic.like}}" count="{{classic.count}}" />
 <v-movie img="{{'../../image/moviepic.jpg'}}" content="{{content}}" />
+
+
+
+<!-- 点击事件bind:tap="" -->
+
+<!-- 监听子组件抛出的事件 bind:myEvent=""
+子组件抛出事件 this.triggerEvent('myEvent',{'zzz':'zzz'},{}) -->
+
+
+<!-- 导入共有的css wxss
+@importan "...."; -->
+
+<!-- observer里不可直接setData里不可setData({index:''})(自身) 会重复触发observer
+
+组件内使用behavior 
+behaviors:[classicBeh] -->
+
+<!-- 底部tab 在app.json里配置 -->
+
+<!-- js跳转
+wx.navigateTo({
+  url:`/pages/book?id=${id}`
+}) -->
+<!-- 在页面onLoad生命周期函数里取到跳转参数(options)-->
+
+<!-- slot插槽的使用
+组件内 <slot name="after"></slot> --> 
+<!-- 组件内js里必须加上 options:{multpleSlots:true} 必须加上 -->
+<!-- 组件外 <v-tag><text slot="after">{{111111}}</text></v-tag> -->
+
+<!-- wxs的使用
+新建xxx.wxs
+const format = function(text){
+    return '1122da'
+}
+module.exports = {
+  format:format
+}
+wxml里引入wxs
+<wxs src="想对路径" module="新的名字,随便定义""> -->
+<!-- wxml调用函数 新的名字.format() -->
+<!-- wxs不能使用ES6语法，语法只是和js相似 -->

@@ -32,6 +32,7 @@ Component({
         count:count,
         like:like
       })
+      this.triggerEvent('myEvent',{'zzz':'zzz'},{})
     } 
   }
 })
